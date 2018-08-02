@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block content%}
+<div class="card">
+  <h5 class="card-header" >24小时市场情况 <span style="font-size: 10px;">数据时间:{{ Ticker24.first.closeTime|date:"m-d H:i:s" }}</span></h5>
+
+  <div class="card-body">
+    <div class="panel-body">
+    <small>
+      <table class="table table-sm table-hover ">
+        <thead class="">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">市场</th>
+            <th scope="col">初始价</th>
+            <th scope="col">最高价</th>
+            <th scope="col">最低价</th>
+            <th scope="col">最后价</th>
+            <th scope="col">加权平均价</th>
+            <th scope="col">交易量</th>
+            <th scope="col">价格变动</th>
+            <th scope="col">价格变动率</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for each in Ticker24 %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <th><a  href="{%url 'currencies:symbol' each.symbol %}">{{each.symbol}}</a></td>
+            <td>{{each.openPrice}}</td>
+            <td>{{each.highPrice}}</td>
+            <td>{{each.lowPrice}}</td>
+            <td>{{each.lastPrice}}</td>
+            <td>{{each.weightedAvgPrice}}</td>
+            <td>{{each.volume}}</td>
+            <td class="{% if each.priceChange < 0 %}text-danger{% else %}text-success{%endif%}">{{each.priceChange}}</td>
+            <td class="{% if each.priceChangePercent < 0 %}text-danger{% else %}text-success{%endif%}">{{each.priceChangePercent}}%</td>
+   
+          </tr>
+          {% endfor %}
+    
+        </tbody>
+      </table>
+      </small>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

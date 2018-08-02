@@ -1,0 +1,34 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{% block title %} symbol {% endblock %}
+
+{% block content%}
+
+<table class="table table-sm table-hover ">
+		<thead class="">
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">市场</th>
+				<th scope="col">baseAsset</th>
+				<th scope="col">quoteAsset</th>
+
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for each in symbols %}
+			<tr>
+				<th scope="row">{{ forloop.counter }}</th>
+				<th><a href="{% url 'currencies:symbol' each.symbol %}">{{each.symbol}}</a>
+				<a style="text-decoration:none;color: black" href=""></a></td>
+				<td>{{each.baseAsset}}</th>
+				<td>{{each.quoteAsset}}</td>
+				
+
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

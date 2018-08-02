@@ -1,0 +1,112 @@
+a.navbar-brand{
+  padding-top: 0;
+}
+li a.nav-link{
+  border: 2px solid rgb(255,255,255,0);
+}
+li a.nav-link:hover{
+  border-bottom: 2px solid #fff;
+  color: #fff !important;
+  font-weight: 600;
+}
+table.table thead{
+  background: #343b40;
+  color: #fff;
+} 
+a {color:#343b40; text-decoration:none;} 
+a:visited {text-decoration:none;} 
+a:hover {color:#ba2636;text-decoration:underline;} 
+a:active {color:#ba2636;} 
+.table td,.table th{vertical-align:sub;}
+footer{
+  background: #fbfbfb;
+  margin-top: 100px;
+}
+
+.messages-warning{border:3px solid rgb(219, 76, 60);padding: 10px;margin-bottom: 10px;text-align: center;border-radius: 5px;}
+/* 滚动条样式设置 */
+div::-webkit-scrollbar{/*滚动条整体部分，其中的属性有width,height,background,border等*/
+    width:5px; 
+    background: black;
+}
+div::-webkit-scrollbar-track-piece{/*内层轨道，滚动条中间部分*/
+    background:#e6e6e6;
+}
+div::-webkit-scrollbar-thumb{/*滚动条里面可以拖动的那部分*/
+  background:#bbbbbb;
+  border-radius:5px;
+}
+
+/* 滚动条样式设置 ---- 完成*/
+
+.xiewen {
+  background-image: -webkit-gradient(linear,0 0, 100% 100%,
+  color-stop(.25, rgba(255, 255, 255, .2)),
+  color-stop(.25, transparent),color-stop(.5, transparent),
+  color-stop(.5, rgba(255, 255, 255, .2)),
+  color-stop(.75, rgba(255, 255, 255, .2)),
+  color-stop(.75, transparent),to(transparent));
+  background-size: 10px 10px;
+}
+
+.chartdiv_ {
+  width: 100%;
+  height: 300px;
+  border:1px solid #edf0f2;
+  margin-bottom: 10px;
+}
+
+.amcharts-graph-g3 .amcharts-graph-stroke {
+  stroke-dasharray: 3px 3px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  -webkit-animation: am-moving-dashes 1s linear infinite;
+  animation: am-moving-dashes 1s linear infinite;
+}
+
+@-webkit-keyframes am-moving-dashes {
+  100% {
+    stroke-dashoffset: -31px;
+  }
+}
+@keyframes am-moving-dashes {
+  100% {
+    stroke-dashoffset: -31px;
+  }
+}
+
+
+.lastBullet {
+  -webkit-animation: am-pulsating 1s ease-out infinite;
+  animation: am-pulsating 1s ease-out infinite;
+}
+@-webkit-keyframes am-pulsating {
+  0% {
+    stroke-opacity: 1;
+    stroke-width: 0px;
+  }
+  100% {
+    stroke-opacity: 0;
+    stroke-width: 50px;
+  }
+}
+@keyframes am-pulsating {
+  0% {
+    stroke-opacity: 1;
+    stroke-width: 0px;
+  }
+  100% {
+    stroke-opacity: 0;
+    stroke-width: 50px;
+  }
+}
+
+.amcharts-graph-column-front {
+  -webkit-transition: all .3s .3s ease-out;
+  transition: all .3s .3s ease-out;
+}
+
+
+.page-link{
+  color: #343b40;
+}

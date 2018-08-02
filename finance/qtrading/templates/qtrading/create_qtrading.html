@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title %}   {% endblock %}
+
+{% block content%}
+
+
+{% if errors %}
+<div class="alert alert-danger" role="alert">
+    {% for error in errors %}
+    <p style="color: red;">
+        {{error}}
+    </p>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<div class="form-group">
+  <h2><p class="text-center"><span style="text-decoration:line-through;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    创建量化交易程序 <span style="text-decoration:line-through;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  </p></h2>
+</div>
+<hr>
+<br>
+
+<form class="was-validated" enctype="multipart/form-data" method="post">{% csrf_token %}
+  <div style="margin: 10px -5px;" class="mb-3 biankuang">
+  <div class="form-group  row" >
+    <label for="inputEmail3" class="col-sm-2 col-form-label">量化交易名称</label>
+    <div class="col-sm-9 ">
+      <input type="text" class="form-control is-invalid" id="" placeholder="例:0601BTCUSDT" name="q_name" required >
+    </div>
+  </div>
+
+
+  <div class="form-group row" >
+    <label for="inputEmail3" class="col-sm-2 col-form-label">选择量化交易模式</label>
+    <div class="col-sm-9">
+        <select class="custom-select" name="method">
+        <option value='波段捕手'>波段捕手</option>
+        <option value='方法一'>方法一</option>
+        </select>
+    </div>
+  </div>
+
+  <div class="form-group row" >
+    <label for="inputEmail3" class="col-sm-2 col-form-label">选择交易对</label>
+    <div class="col-sm-9">
+        <select class="custom-select" name="symbol">
+          {% for each in symbol_list %}
+          <option value='{{each}}'>{{each}}</option>
+          {% endfor %}
+        </select>
+    </div>
+  </div>
+  </div>
+
+  <div class=" mb-3 " style="box-shadow:5px 5px 20px rgba(0, 0, 0, 0.1) ;padding: 20px;margin: 10px -5px;text-align: center;color: #dc3545;">
+  合理资金利用公式：(1+P)^(T/(U*N))=Pmax/Pmin
+  </div>
+
+  <div class="form-row mb-3 biankuang" >
+    <div class="col-sm-5 ">
+      <label for="">投入金额:T</label>
+      <div class="input-group ">
+        <input type="number" class="form-control" id="" placeholder="您目前持有{{usdr_free}}USDT" aria-describedby="inputGroupPrepend" required min="100" name="amount" >
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2">USDT</span>
+        </div>
+        <div class="invalid-feedback">
+          <small>建议金额不低于2000USDT!</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-5 offset-sm-2 ">
+      <label for="validationCustom01">交易对 进场价格</label>
+      <input type="number" class="form-control" id="" placeholder="" value="0" required  min="0" step="0.01" name="start_price">
+      <div class="valid-feedback">
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row mb-3 biankuang" >
+    <div class="col-sm-5 ">
+      <label for="">预测市场波动高价:Pmax</label>
+      <input type="number" class="form-control" id="" placeholder="" value="" required min="0"  step="0.0001" name="h_price">
+      <div class="invalid-feedback">
+        <small>依市场走势大致判断</small>
+      </div>
+    </div>
+    <div class="col-sm-5 offset-sm-2 ">
+      <label for="">预测市场波动低价:Pmin</label>
+      <input type="number" class="form-control" id="" placeholder="" value="" required min="0" step="0.0001" name="l_price">
+      <div class="invalid-feedback">
+        <small>依市场走势大致判断</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row mb-3 biankuang" >
+    <div class="col-sm-5 ">
+      <label for="validationCustom02">量化交易单组收益:O</label>
+      <input type="number" class="form-control" id="validationCustom02" placeholder="" value="{{x}}" required min="0.002" max="0.5" step="0.0001" name="q_income">
+      <div class="invalid-feedback">
+        建议不低于0.002！
+      </div>
+      <div class="valid-feedback">
+        
+      </div>
+    </div>
+
+    <div class="col-sm-5 offset-sm-2 ">
+      <label for="">量化交易单笔金额:U</label>
+      <div class="input-group ">
+        <input type="number" class="form-control" id="" placeholder="" aria-describedby="inputGroupPrepend"  required min="11" name="q_amount">
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2">USDT</span>
+        </div>
+        <div class="invalid-feedback">
+          <small>不得低于11USDT!</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="custom-control custom-checkbox mb-3">
+    <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+    <label class="custom-control-label" for="customControlValidation1">同意条款</label>
+    <div class="invalid-feedback">量化交易程序为辅助交易程序，您应熟知程序优劣势。</div>
+  </div>
+
+  <br>
+  <br>
+  
+  <div class="d-flex justify-content-around" >
+    <button type="submit" class="btn btn-success">创建此程序</button>
+  </div>
+
+
+</form>
+{% endblock %}

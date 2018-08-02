@@ -1,0 +1,139 @@
+{% load static %}
+
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{% static 'favicon.jpeg' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--
+    <link href="{% static 'js/emojionearea.min.css' %}" rel="stylesheet">
+    -->
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{%static 'css/default.css'%}">
+    <style type="text/css">
+      li.nav-item.avatar{
+        margin: auto;
+      }
+      ul.userinfo:hover .username{
+        display:block;
+      }
+      .nav-item.username{
+        display: none;
+        box-shadow: 0px 0px 20px rgb(0,0,0,.1);
+        
+        -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+          transition: transform 1s linear;
+        will-change: transform;
+      }
+
+      ul.ul-box{
+        list-style: none;
+        padding: 0px 5px;
+      }
+      .page_select{background: #fbd202 !important;color: #fff;}
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark " style="padding:0px;background: #343b40 ">
+        <a class="navbar-brand" href="#"><img src="{% static 'favicon.jpeg' %}" style="width:30px;height:30px;margin:0px 15px 0px 15px "></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'currencies:home'  %}">主页 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="{% url 'currencies:symbol_home' %}">市场</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="{% url 'currencies:asset_home' %}">币种</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link " href="{% url 'reuser:userview' %}">个人账户</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="{% url 'qtrading:qtrading' %}">量化交易</a>
+            </li>
+          </ul>
+
+            {% if request.user.is_authenticated%}
+
+
+            <div class="pull-right  mr-2"  >
+              <ul class="navbar-nav mr-auto userinfo">
+                <li class="nav-item avatar ">
+                  <img id="avatar" src="{{ request.user.avatar.url }}" class="img-circle img-responsive rounded-circle"  style="width:30px;height:30px;">
+                </li>
+                <li class="nav-item username"><a class="nav-link" >{{request.user.username}}</a></li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="{% url 'reuser:logout' %}">退出</a>
+                </li>
+              </ul>
+            </div>
+            {% else %}
+            <div class="pull-right mr-2" >
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                   <a class="nav-link " href="{% url 'reuser:login'  %}" >登录<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                   <a class="nav-link " href="{%url 'reuser:register' %}">注册<span class="sr-only">(current)</span></a>
+                </li>
+              </ul>
+            </div>
+            {% endif %}
+        </div>
+      </nav>
+    </header>
+
+
+
+    <div class="container" style="min-height: 800px">   
+      <br>
+      {% block content%}{% endblock %}
+    </div>
+
+    <footer class="py-2 "> 
+      <div class="text-center">
+        <span > 
+          <small >&copy; 2018-2018 | weinian</small><br>
+          <small >Contact us by email:hanjing@fddiy.com</small>
+        </span>
+
+      </div>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!--
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+    <script type='text/javascript'>
+      CKEDITOR.replace("ckeditor",{ toolbar : [ ['Styles','Format','Font','FontSize'], ['TextColor','BGColor',],
+            ['Bold','Italic','Underline','Strike'], 
+            ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','Subscript','Superscript','Smiley'], ] });
+    </script>   
+    <script src="{% static 'js/emojionearea.min.js' %}"></script>
+    -->             
+    
+
+    {% block script%}{% endblock %}
+  </body>
+</html>

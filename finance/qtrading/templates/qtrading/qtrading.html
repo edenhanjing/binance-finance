@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title %} 量化交易 {% endblock %}
+
+{% block content%}
+
+<div class="card" style="margin-bottom: 20px;">
+  <div class="card-body">
+    <div class="row" >
+      <div class="col-sm-2">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action list-group-item-light active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">波段捕手</a>
+          <a class="list-group-item list-group-item-action list-group-item-light" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">趋势买卖</a>
+          <a class="list-group-item list-group-item-action list-group-item-light" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">组合策略</a>
+        </div>
+
+
+      </div>
+      <div class="col-sm-10"  style="height: 200px;overflow:auto">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list" >
+            策略名称：波段捕手<br>
+            策略目的：利用波段浮动，自动赚取收益<br>
+            初始条件：<br>
+            1、设定此量化交易总投入USDT量(T)<br>
+            2、预测市场高价、低价(Pmax、Pmin)<br>
+            3、设定变量，波段收益：O，单笔金额：U<br>
+            4、依合理资金利用公式，计算变量设置是否合理<br>
+            运行规则：<br>
+            1、手动下一单以上（N）起始单，成交后按照O计算价格，触发一组（一买一卖）订单，<br>
+            买单价=触发单的价格*((1+O)^0.5)<br>
+            卖单价=触发单的价格*1/((1+O)^0.5)<br>
+            2、每组订单先完成的单将按此价格触发新的一组订单，同组后完成的另一单不触发。<br>
+            3、订单触发后进行边界处理：将要触发的卖单超过前期最高成交价Pmax或者买单超过前期最低价Pmin，视为触发边界<br>
+            下一组订单的卖价超过最高价，只下卖单，不下买单，卖单成交之后再补下买单<br>
+            下一组订单的买价低于最低价，只下买单，不下卖单，买单成交之后再补下卖单<br>
+          </div>
+          <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">2</div>
+          <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">3</div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div  class="row justify-content-around">
+      <div class=" col-sm-3" >
+        <a href="{% url 'qtrading:create_qtrading' %}" class="btn btn-success">创建新的量化交易程序</a>  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h5 class="card-header">您目前的量化交易程序</h5>
+  <div class="card-body">
+    {% for each in qtradings %}
+      {%if each.iswork %}
+      <div class="alert alert-success row xiewen progress-bar-animated" role="alert" >
+        <div class="col-sm-3" style="text-align: center;">
+          <a href="{%url 'qtrading:qtrading_info' each.id %}"> <b>{{each.q_name}}</b><small class="text-muted" >-({{each.symbol_id}})</small> </a>
+        </div>
+        <div class="col-sm-7 row justify-content-around " style="text-align: center;" >
+          <div class="col-sm-3">
+            <small class="text-success">正在运行...</small>
+          </div>
+        </div>
+        <div class="col-sm-2" style="text-align: right;">
+          <small class="text-muted" >{{each.create_time|date:'m-d H:i:s'}}</small>
+        </div>
+      </div>
+      {% else %}
+      <div class="alert alert-secondary row xiewen" role="alert" >
+        <div class="col-sm-3" style="text-align: center;">
+          <a href="{%url 'qtrading:qtrading_info' each.id %}" class="text-muted"> <b>{{each.q_name}}</b><small >-({{each.symbol_id}})</small> </a>
+        </div>
+        <div class="col-sm-7  row" style="text-align: center;" >
+            <div class=" col-sm-3" >
+              <span class="badge  badge-info">相较于空仓&nbsp;&nbsp;{{each.relatively_empty|floatformat:2}}USDT</span>
+            </div>
+            <div class=" col-sm-3" >
+              <span class="badge  badge-info">相较于满仓&nbsp;&nbsp;{{each.simulation_full|floatformat:2}}USDT</span>  
+            </div> 
+            <div class=" col-sm-3" >
+              <span class="badge  badge-danger" >量化收益&nbsp;&nbsp;{{each.quantitative_i|floatformat:2}}USDT</span>  
+            </div>
+            <div class=" col-sm-3" >
+              <span class="badge  badge-success">实际收益&nbsp;&nbsp;{{each.actual_i|floatformat:2}}USDT</span>  
+            </div>
+        </div>
+        <div class="col-sm-2" style="text-align: right;">
+          <small class="text-muted" >{{each.create_time|date:'m-d H:i:s'}}</small>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

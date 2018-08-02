@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}币种{% endblock %}
+
+{% block content%}
+<table class="table table-sm table-hover ">
+    <thead class="">
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">币种</th>
+        <th scope="col">名称</th>
+        <th scope="col">价格($)</th>
+        <th scope="col">涨跌幅24h</th>
+        <th scope="col">市值</th>
+        <th scope="col">信息时间</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for asset in assets %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <th><img src="{{asset.logo.url}}" style="width:25px;height:25px;margin-left: 5px">&nbsp;&nbsp;{{asset.name}}</td>
+        <td>{{asset.full_name }}</th>
+        <td>{{asset.price}}</td>
+        <td class="{% if asset.change_24h < 0 %}text-danger{% else %}text-success{%endif%}">{{asset.change_24h}}%</td>
+        <td>{{asset.market_cap}}</td>
+        <td>{{asset.data_update_time|date:'m-d H:i:s'}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

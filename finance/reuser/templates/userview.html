@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{request.user.username}} {% endblock %}
+
+{% block content%}
+
+{% if errors %}
+<div class="alert alert-danger" role="alert">
+  {%for error in errors%}
+    {{error}}
+  {% endfor %}
+</div>
+{% else %}
+<div>
+    <span class="badge badge-light">数据时间:{% now "m-d H:i:s" %}</span>
+</div>
+{% endif %}
+
+<div>
+    <div style="border:1px solid #edf0f2;padding: 20px;margin-bottom: 10px">
+    <b>库存</b>
+    <table class="table table-sm table-hover ">
+      <thead class=""> 
+        <tr>
+          <th scope="col">等值币种</th>
+          <th scope="col">总资产</th>
+          <th scope="col">成本</th>
+          <th scope="col">除USDT外市值</th>
+          <th scope="col">浮动盈亏</th>
+          <th scope="col">盈亏比</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>USDT</th>
+          <td>{{total_info.market_value|floatformat:5}}</td>
+          <td>{{total_info.cost|floatformat:5}}</td>
+          <td>{{total_info.exclude_usdt|floatformat:5}}</td>
+          <td>{{total_info.profit_and_loss|floatformat:5}}</td>
+          <td class="{% if total_info.pl_percent < 0 %}text-danger{% else %}text-success{%endif%}">{{total_info.pl_percent|floatformat:2}}%</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table table-sm table-hover ">
+      <thead class="">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">币种</th>
+          <th scope="col">目前持有</th>
+          <th scope="col">可用</th>
+          <th scope="col">冻结</th>
+
+          <th scope="col">最新单价</th>
+          <th scope="col">目前市值</th>
+
+
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for acco in account_info %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <th><a style="text-decoration:none;color: black" href=""><img src="{{acco.asset.logo.url}}" style="width:20px;height:20px"> {{acco.asset.name}}</a></td>
+          <td>{{acco.total|floatformat:5}}</td>
+          <td>{{acco.free|floatformat:5}}</td>
+          <td>{{acco.locked|floatformat:5}}</td>
+
+          <td>{{acco.asset.price|floatformat:5}}</td>
+          <td>{{acco.market_value|floatformat:5}}</td>
+
+
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div style="border:1px solid #edf0f2;padding: 20px;margin-bottom: 10px">
+  <div>
+      <b>当前委托</b>
+      <a href="#" class="badge badge-light text-muted" id="cancel_all_orders" style="float:right;"><small>取消当前<span>{{openoeders|length}}</span>个订单</small></a>
+    </div>
+
+    <table class="table table-sm table-hover ">
+      <thead class="">
+        <tr >
+          <th scope="col">#</th>
+          <th scope="col">市场</th>
+          <th scope="col">ID</th>
+          <th scope="col">状态</th>
+          <th scope="col">买卖</th>
+          <th scope="col">价格</th>
+          <th scope="col">数量</th>
+          <th scope="col">委托金额</th>
+          <th scope="col">时间</th>
+          <th scope="col">取消订单</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for acco in openoeders %}
+        <tr order_id="{{acco.orderId}}">
+          <th scope="row">{{ forloop.counter }}</th>
+          <th><a symbol_id="{{ forloop.counter }}" style="text-decoration:none;color: black" href="{%url 'currencies:symbol' acco.symbol.symbol %}">{{acco.symbol.symbol}}</a></td>
+          <td><p order_id="{{ forloop.counter }}">{{acco.orderId}}</p></td>
+          <td>{{acco.status}}</th>
+          {% if acco.side == 'SELL'%}
+          <td class="text-danger">{{acco.side}}</td>
+          {% else %}
+          <td class="text-success">{{acco.side}}</td>
+          {% endif %}
+          <td>{{acco.price|floatformat:5}}</td>
+          <td>{{acco.origQty|floatformat:5}}</td>
+          <td>{{acco.order_price|floatformat:5}}</td>
+          <td>{{acco.time|date:'m-d H:i:s'}}</td>
+          <td><button type="button" button_id="{{ forloop.counter }}" class="btn btn-outline-secondary btn-sm">取消订单</button></td>
+
+        </tr>
+        {% endfor %}
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <div style="border:1px solid #edf0f2;padding: 20px;margin-bottom: 10px">
+    <b>历史交易<a href="{%url 'qtrading:trade'%}"><small class="text-muted">(查看所有历史交易)</small></a> </b>
+    <small>
+    <table class="table table-sm table-hover ">
+      <thead class="">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">市场</th>
+          <th scope="col">ID</th>
+          <th scope="col">状态</th>
+          <th scope="col">买卖</th>
+          <th scope="col">价格</th>
+          <th scope="col">数量</th>
+          <th scope="col">实际交易金额</th>
+          <th scope="col">订单时间</th>
+          <th scope="col">交易时间</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for acco in ordering_strem %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <th><a style="text-decoration:none;color: black" href="{%url 'currencies:symbol' acco.order.symbol.symbol %}">{{acco.order.symbol.symbol}}</a></td>
+          <td>{{acco.order.orderId}}</td>
+          <td>{{acco.order.status}}</td>
+          <td>{{acco.order.side}}</td>
+          <td>{{acco.price|floatformat:4}}</td>
+          <td>{{acco.qty|floatformat:4}}</td>
+          <td>{{acco.executed_price|floatformat:4}}</td>
+          <td>{{acco.order.time|date:'m-d H:i:s'}}</td>
+          <td>{{acco.time|date:'m-d H:i:s'}}</td>
+        </tr>
+        {% endfor %}
+        {% for acco in canceled_orders %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <th><a style="text-decoration:none;color: black" href="{%url 'currencies:symbol' acco.symbol.symbol %}">{{acco.symbol.symbol}}</a></td>
+          <td>{{acco.orderId}}</td>
+          <td>{{acco.status}}</td>
+          <td>{{acco.side}}</td>
+          <td>{{acco.price|floatformat:4}}</td>
+          <td>{{acco.origQty|floatformat:4}}</td>
+          <td>0</td>
+          <td>{{acco.time|date:'m-d H:i:s'}}</td>
+          <td>0</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </small>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block script%}
+<!--取消对应订单 js-->
+<script >
+
+for (var i = 0; i <{{openoeders|length}}+1; i++) {
+    $("[button_id='"+i+"']").click(function(){
+        if(confirm("确认取消订单?")){
+        	order_num = $("#cancel_all_orders").find("span")
+          var count=$(this).attr('button_id');
+          var order_id= $("[order_id="+ count +"]").text();
+          var symbol= $("[symbol_id="+ count +"]").text();
+          var date_ = {'order_id':order_id,'symbol':symbol};
+          $.post("{%url 'qtrading:cancel_order'%}",date_,function(response_date){
+            if (response_date.orderId){
+              $("tr[order_id="+ response_date.orderId +"]").hide();
+              var change = order_num.text()*1-1;
+              order_num.text(change);
+
+
+            }
+            else if (response_date.aa){alert('订单取消失败!'+response_date.status);};
+          });
+        }  
+    });
+}
+</script>
+<script>
+$("#cancel_all_orders").click(function(){
+    if(confirm("确认取消当前所有订单?")){
+        for (var i = 1; i <{{openoeders|length}}+1; i++) {
+        	order_num = $("#cancel_all_orders").find("span");
+          var order_id= $("[order_id="+ i +"]").text();
+          var symbol= $("[symbol_id="+ i +"]").text();
+          var date_ = {'order_id':order_id,'symbol':symbol};
+          $.post("{%url 'qtrading:cancel_order'%}",date_,function(response_date){
+            if (response_date.orderId){
+              $("tr[order_id="+ response_date.orderId +"]").hide();
+              var change = order_num.text()*1-1;
+              order_num.text(change);
+            };
+          }); 
+        };
+    }  
+});
+
+</script>
+{% endblock %}

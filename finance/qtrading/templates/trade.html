@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div style="border:1px solid #edf0f2;padding: 20px;margin-bottom: 10px">
+  <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+      <input type="text" class="form-control" placeholder="搜索订单id或交易id" name="search" value="{{search}}" >
+    </div>
+    <button type="submit" class="btn btn-success mb-2"  >搜索</button>
+  </form>
+</div>
+<div class="card">
+  <h5 class="card-header" >历史交易</h5>
+
+  <div class="card-body">
+    <div class="panel-body">
+    <small>
+      <table class="table table-sm table-hover ">
+        <thead class="">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">市场</th>
+            <th scope="col">OrderId</th>
+            <th scope="col">TradId</th>
+            <th scope="col">买卖</th>
+            <th scope="col">状态</th>
+            <th scope="col">价格</th>
+            <th scope="col">数量</th>
+            <th scope="col">实际交易金额</th>
+            <th scope="col">订单时间</th>
+            <th scope="col">交易时间</th>
+            <th scope="col">from</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for acco in trading_list %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <th><a style="text-decoration:none;color: black" href="{%url 'currencies:symbol' acco.order.symbol.symbol %}">{{acco.order.symbol.symbol}}</a></td>
+            <td>{{acco.order.orderId}}</td>
+            <td>{{acco.trade_id}}</td>
+            <td>{{acco.order.side}}</td>
+            <td>{{acco.order.status}}</td>
+            <td>{{acco.price|floatformat:4}}</td>
+            <td>{{acco.qty|floatformat:4}}</td>
+            <td>{{acco.executed_price|floatformat:4}}</td>
+            <td>{{acco.order.time|date:'m-d H:i:s'}}</td>
+            <td>{{acco.time|date:'m-d H:i:s'}}</td>
+            <td>{{acco.order.parent_order}}</td>
+          </tr>
+          {% endfor %}
+    
+        </tbody>
+      </table>
+      </small>
+    </div>
+  </div>
+  <div align="center" aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <!--previous-->
+      {% if trading_list.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ trading_list.previous_page_number}}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+        <a class="page-link " href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      {% endif %}
+
+      <!--all-->
+      {% for page_num in page_range %}
+        {% if page_num == trading_list.number %}
+          <li class="page-item "><a class="page-link page_select" href="?page={{ page_num }}">{{ page_num }}</a></li>
+        {% else %}
+          {% if page_num == '...' %}
+            <li class="page-item disabled" ><a class="page-link " href="#" >...</a></li>
+          {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a></li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      <!--next-->
+      {% if trading_list.has_next %}
+      <li>
+        <a class="page-link" href="?page={{ trading_list.next_page_number}}"" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+        <a class="page-link " href="#" aria-label="Previous">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      {% endif %}
+      
+    </ul>
+  </div>
+</div>
+
+
+{% endblock %}

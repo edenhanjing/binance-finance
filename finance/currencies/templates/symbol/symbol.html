@@ -1,0 +1,328 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{symbol.symbol}} {% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'amcharts/export.css'%}" type="text/css" media="all" />
+{% endblock %}
+
+{% block content%}
+    <h1>
+        {{symbol.baseAsset}}/{{symbol.quoteAsset}}
+    </h1>
+
+    <div id="list"></div>
+
+    <div id="chartdiv" style="width:100%; height:500px;"></div>
+    <br>
+    {%if user.is_authenticated%}
+    <div class="row"> 
+        <div class="col-md-6" align="center" >
+          <div class="form-horizontal"  >  
+            <div style="border:3px solid rgb(219, 76, 60);padding: 20px;margin-bottom: 10px; ">
+                <b align="center" style="color:rgb(219, 76, 60) ">买入{{symbol.baseAsset}}</b> 
+                <div>
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="">价格</span>
+                      </div>
+                      <input type="number" class="form-control" id="b_p"  min="0" step="0.000001" >
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="">总支付</span>
+                      </div>
+                      <input type="number" class="form-control" id="b_t"  min="0" step="0.000001" name="start_price">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="">USDT</span>
+                      </div>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="-sizing-sm">量化操作</span>
+                      </div>
+                      <select class="form-control" id="buy_limit" name="buy_limit">
+                           <option value=''>默认不计入</option>
+                           {% for each in q_trading_list %}
+                           <option value='{{each.id}}'>{{each.q_name}}</option>
+                           {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-group" role="group" aria-label="Third group">
+                  <button  class="btn btn-block" style="background-color:rgb(219, 76, 60);color: white " id="buy">买入</button>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 " align="center">
+          <div class="form-horizontal"  >
+            <div style="border:3px solid rgb(127, 141, 169);padding: 20px;margin-bottom: 10px; ">
+                <b align="center" style="color:rgb(127, 141, 169) ">卖出{{symbol.baseAsset}}</b>
+                <div>
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="-sizing-sm">价格</span>
+                      </div>
+                      <input type="number" class="form-control" id="s_p" min="0" step="0.000001" name="start_price">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="-sizing-sm">总支付</span>
+                      </div>
+                      <input type="number" class="form-control" id="s_t" min="0" step="0.000001" name="start_price">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="">USDT</span>
+                      </div>
+                    </div>
+                    
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="-sizing-sm">量化操作</span>
+                      </div>
+                      <select class="form-control" id="sell_limit" name="sell_limit">
+                           <option value=''>默认不计入</option>
+                           {% for each in q_trading_list %}
+                           <option value='{{each.id}}'>{{each.q_name}}</option>
+                           {% endfor %}
+                        </select>
+                    </div>
+
+
+                </div>
+                <div class="btn-group" role="group" aria-label="Third group">
+                  <button class="btn btn-block" style="background-color:rgb(127, 141, 169);color: white " id="sell">卖出</button>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    {%else%}
+    <div style="border:3px solid rgb(219, 76, 60);padding: 20px;margin-bottom: 10px;text-align: center;">
+      <span><b><a href="">登录</a>/<a href="">注册</a></b> 后进行买卖下单操作</span>
+    </div>
+    {%endif%}
+{% endblock %}
+
+{% block script%}
+<script src="{% static 'amcharts/amcharts.js'%}"></script>
+<script src="{% static 'amcharts/serial.js'%}"></script>
+<script src="{% static 'amcharts/amstock.js'%}"></script>
+<script src="{% static 'amcharts/export.min.js'%}"></script>
+
+<script>
+    AmCharts.ready(function () {
+        generateChartData();
+        createStockChart();
+        addPanel();
+    });
+
+    var chart;
+    var chartData = [];
+    var newPanel;
+    var stockPanel;
+    
+    function generateChartData() {
+        var firstDate = new Date();
+        firstDate.setHours(0, 0, 0, 0);
+        firstDate.setDate(firstDate.getDate() - 2000);
+
+        var aaaaaa = {{ifo|safe}};
+        var aaa=(aaaaaa);
+
+        for (var i = 0; i < aaa.length; i++) {
+            var cdate = aaa[i][0];
+            var copen = aaa[i][1];
+            var cclose = aaa[i][4];
+            var chigh = aaa[i][2];
+            var clow = aaa[i][3];
+            var cvolume = aaa[i][5];
+
+            
+            chartData.push ({
+                date: cdate,
+                open: copen,
+                close: cclose,
+                high: chigh,
+                low: clow,
+                volume: cvolume
+            });             
+        };                  
+    };
+
+        
+    function createStockChart() {
+        chart = new AmCharts.AmStockChart();
+
+        chart.balloon.horizontalPadding = 10;
+
+        // DATASET //////////////////////////////////////////
+        var dataSet = new AmCharts.DataSet();
+        dataSet.fieldMappings = [{
+            fromField: "open",
+            toField: "open"
+        }, {
+            fromField: "close",
+            toField: "close"
+        }, {
+            fromField: "high",
+            toField: "high"
+        }, {
+            fromField: "low",
+            toField: "low"
+        }, {
+            fromField: "volume",
+            toField: "volume"
+        }, {
+            fromField: "value",
+            toField: "value"
+        }];
+        dataSet.color = "#7f8da9";
+        dataSet.dataProvider = chartData;
+        dataSet.categoryField = "date";
+
+        chart.dataSets = [dataSet];
+
+        // 股票面板
+        stockPanel = new AmCharts.StockPanel();
+        stockPanel.title = "Value";
+
+        // 股票图
+        var graph = new AmCharts.StockGraph();
+        graph.type = "candlestick";
+        graph.openField = "open";
+        graph.closeField = "close";
+        graph.highField = "high";
+        graph.lowField = "low";
+        graph.valueField = "close";
+        graph.lineColor = "#7f8da9";
+        graph.fillColors = "#7f8da9";
+        graph.negativeLineColor = "#db4c3c";
+        graph.negativeFillColors = "#db4c3c";
+        graph.fillAlphas = 1;
+        graph.balloonText = "open:<b>[[open]]</b><br>close:<b>[[close]]</b><br>low:<b>[[low]]</b><br>high:<b>[[high]]</b>";
+        graph.useDataSetColors = false;
+        stockPanel.addStockGraph(graph);
+
+        //股票图例
+        var stockLegend = new AmCharts.StockLegend();
+        stockLegend.markerType = "none";
+        stockLegend.markerSize = 0;
+        stockLegend.valueTextRegular = undefined;
+        stockLegend.valueWidth = 250;
+        stockPanel.stockLegend = stockLegend;
+
+        chart.panels = [stockPanel];
+
+        // 图表滚动条设置
+        var sbsettings = new AmCharts.ChartScrollbarSettings();
+        sbsettings.graph = graph;
+        sbsettings.graphType = "line";
+        sbsettings.usePeriod = "WW";
+        chart.chartScrollbarSettings = sbsettings;
+
+        // 面板设置
+        var panelsSettings = new AmCharts.PanelsSettings();
+        panelsSettings.panEventsEnabled = true;
+        chart.panelsSettings = panelsSettings;
+
+        // 游标设置
+        var cursorSettings = new AmCharts.ChartCursorSettings();
+        cursorSettings.valueBalloonsEnabled = true;
+        cursorSettings.fullWidth = true;
+        cursorSettings.cursorAlpha = 0.1;
+        chart.chartCursorSettings = cursorSettings;
+
+        // 期间选择器
+        var periodSelector = new AmCharts.PeriodSelector();
+        periodSelector.position = "bottom";
+        periodSelector.periods = [{
+            period: "DD",
+            count: 10,
+            label: "10 days"
+        }, {
+            period: "MM",
+            selected: true,
+            count: 1,
+            label: "1 month"
+        }, {
+            period: "YYYY",
+            count: 1,
+            label: "1 year"
+        }, {
+            period: "YTD",
+            label: "YTD"
+        }, {
+            period: "MAX",
+            label: "MAX"
+        }];
+        chart.periodSelector = periodSelector;
+
+
+        chart.write('chartdiv');
+    }
+
+    function addPanel() {
+        newPanel = new AmCharts.StockPanel();
+        newPanel.allowTurningOff = true;
+        newPanel.title = "Volume";
+        newPanel.showCategoryAxis = false;
+
+        var graph = new AmCharts.StockGraph();
+        graph.valueField = "volume";
+        graph.fillAlphas = 0.5;
+        graph.type ='column'
+        newPanel.addStockGraph(graph);
+
+        var legend = new AmCharts.StockLegend();
+        legend.markerType = "none";
+        legend.markerSize = 0;
+        newPanel.stockLegend = legend;
+        newPanel.percentHeight=30;
+
+        chart.addPanelAt(newPanel, 1);
+        chart.validateNow();
+
+    }
+
+</script>
+
+<script type="text/javascript">
+  //下订单 js
+  $("#buy").click(function(){
+    if(confirm("确认买入?")){
+      var b_p= $("#b_p").val();
+      var b_t= $("#b_t").val();
+      var q_trading =$("#buy_limit").val();
+      var data_ = {'b_p':b_p,'b_t': b_t,"symbol":'{{symbol.symbol}}',"q_trading":q_trading} ;
+      $.post("{%url 'qtrading:buy_or_sell'%}",data_,function(response_date){  
+          if (response_date.orderId){
+            alert('卖单'+response_date.orderId+'已建立！');
+          }
+          else if (response_date.aa){alert('卖单建立失败!');};
+      });
+    } 
+    $('#b_p').val("");
+    $('#b_t').val("");
+
+  });
+
+  $("#sell").click(function(){
+    if(confirm("确认卖出?")){
+      var s_p= $("#s_p").val();
+      var s_t= $("#s_t").val();
+      var q_trading =$("#sell_limit").val();
+      var data_ = {'s_p':s_p,'s_t': s_t,"symbol":'{{symbol.symbol}}',"q_trading":q_trading} ;
+      $.post("{%url 'qtrading:buy_or_sell'%}",data_,function(response_date){  
+          if (response_date.orderId) {
+            alert('卖单'+response_date.orderId+'已建立！');
+          }
+          else if (response_date.aa){alert('卖单建立失败!');};
+      });
+    } 
+    $('#s_p').val("");
+    $('#s_t').val("");
+  });
+</script>
+{% endblock %}

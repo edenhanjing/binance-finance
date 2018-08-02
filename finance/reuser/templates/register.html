@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% if errors %}
+<div class="messages-warning">
+	{% for message in errors %}
+	<span>{{ message }}</span>
+	{% endfor %}
+</div>
+{% endif %}
+
+{% if messages %}
+<div style="border:3px solid rgb(219, 76, 60);padding: 20px;margin-bottom: 10px;text-align: center;">
+	{% for message in messages %}
+	<span {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message.message }}</span>
+	{% endfor %}
+</div>
+{% endif %}
+
+<style type="text/css">
+	.was-validated{
+		width: 50%;
+    margin: auto;
+   }
+  button.btn{
+    letter-spacing: .4em;
+  }
+  .register{
+    width:200px;
+    background:#fbd202;
+    color: #333;
+    padding:6px 12px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    letter-spacing: .4em;
+    font-size: 15px;
+  }
+  .register:hover{
+    box-shadow:3px 3px 20px rgba(150, 150, 150, 0.2);
+  }
+
+
+</style>
+<div class="form-group">
+  <h2><p class="text-center"><span style="text-decoration:line-through;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	注册 <span style="text-decoration:line-through;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  </p></h2>
+</div>
+<div class="jumbotron">
+	<form class="was-validated" action=""  enctype="multipart/form-data" method="post">{% csrf_token %}
+		<div class="form-group">
+			<sanp>邮箱</sanp>
+			<input type="email" class="form-control" id="" placeholder="xxx@xxx.com" value="" required name="email" >
+		</div>
+
+		<div class="form-group">
+			<sanp>密码</sanp>
+			<input type="password" class="form-control is-valid" placeholder="" value="" required name="password">
+		</div>
+
+		<div class="form-group">
+			<sanp>确认密码</sanp>
+			<input type="password" class="form-control is-valid"   placeholder="" value="" required name="password2">
+		</div>
+
+		<div class="form-group">
+			<sanp>API秘钥</sanp>
+			<input type="text" class="form-control is-valid"   placeholder="币安api_key" value="" required name="api_key">
+		</div>
+
+		<div class="form-group">
+			<sanp>秘钥密码</sanp>
+			<input type="text" class="form-control is-valid"   placeholder="币安api_key密码(只显示一次,请确认无误)" value="" required name="secret">
+		</div>
+		<br>
+		<div class="form-group" style="text-align: center;">
+			<button type="submit" class="btn register" >&nbsp;&nbsp;注册&nbsp;&nbsp;</button>
+		</div>
+	</form>
+</div>
+
+
+
+{% endblock %}

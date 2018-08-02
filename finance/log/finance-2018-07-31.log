@@ -1,0 +1,825 @@
+
+[2018-07-31 09:59:03,380][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 09:59:03,648][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 09:59:09,035][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 09:59:09,068][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 09:59:10,892][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:00:30,499][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:00:42,440][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:00:42,607][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:00:42,918][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:00:46,598][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:10:30,630][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:10:32,460][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:10:33,221][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:10:33,522][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:10:37,002][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:10:58,744][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:11:05,591][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:11:07,523][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:11:18,588][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:11:28,306][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:11:29,369][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:11:33,483][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:11:35,064][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:11:54,548][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:11:55,826][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:11:56,120][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:12:03,169][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:12:04,040][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:12:22,246][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:12:25,650][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:12:29,127][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:39:49,892][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:53:38,758][INFO][binance_start]
+han-xiansheng@qq.com    Establish connection!!
+
+[2018-07-31 10:54:24,778][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45743308, -1, '13.21000000', '0.83000000', '0.00000000']
+
+[2018-07-31 10:56:40,624][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 10:57:16,188][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45743308, 14352567, '13.21000000', '0.83000000', '0.83000000']
+
+[2018-07-31 10:57:18,593][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45743441, -1, '13.18370000', '0.83000000', '0.00000000']
+
+[2018-07-31 10:57:21,890][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45743442, -1, '13.23640000', '0.83000000', '0.00000000']
+
+[2018-07-31 11:15:05,507][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45743441, 14352675, '13.18370000', '0.83000000', '0.83000000']
+
+[2018-07-31 11:15:11,639][WARNING][p_orders]
+45743441在触发新时。test7.31  库存不足!!
+
+[2018-07-31 11:22:27,397][INFO][process_message]
+han-xiansheng@qq.com    Close!!!!!
+
+[2018-07-31 11:26:46,828][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 11:30:34,651][INFO][binance_start]
+han-xiansheng@qq.com    Establish connection!!
+
+[2018-07-31 11:33:29,590][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45746132, -1, '13.11100000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:33:33,596][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45746132, 14353219, '13.11100000', '0.84000000', '0.84000000']
+
+[2018-07-31 11:33:37,212][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45746148, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:33:39,751][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45746150, -1, '13.13720000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:55:06,444][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45746148, 14353509, '13.08490000', '0.84000000', '0.84000000']
+
+[2018-07-31 11:55:07,060][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45748209, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:55:07,195][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45748212, -1, '13.11100000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:56:13,678][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45748209, 14353614, '13.05880000', '0.84000000', '0.84000000']
+
+[2018-07-31 11:56:14,345][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45748446, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:56:14,475][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45748447, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:56:14,814][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'SELL', 45746150, -1, '13.13720000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:56:14,852][INFO][_cancel_open_order]
+45746150  订单被取消！
+
+[2018-07-31 11:56:30,997][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 11:56:50,335][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45748446, 14353692, '13.03280000', '0.84000000', '0.84000000']
+
+[2018-07-31 11:56:50,767][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45748557, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 11:56:50,904][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45748558, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:56:51,242][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'SELL', 45748212, -1, '13.11100000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:56:51,278][INFO][_cancel_open_order]
+45748212  订单被取消！
+
+[2018-07-31 11:56:52,730][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45748558, 14353702, '13.05880000', '0.84000000', '0.84000000']
+
+[2018-07-31 11:56:53,327][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45748566, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:56:53,445][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45748569, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:57:04,458][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45748566, 14353707, '13.03280000', '0.84000000', '0.84000000']
+
+[2018-07-31 11:57:04,929][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45748595, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 11:57:05,137][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45748599, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:57:24,221][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45748599, 14353720, '13.05880000', '0.84000000', '0.84000000']
+
+[2018-07-31 11:57:25,143][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45748643, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 11:57:25,397][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45748644, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:04:29,412][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45748643, 14353790, '13.03280000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:04:30,142][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45749259, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:04:30,277][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45749260, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:15:59,923][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45749260, 14353969, '13.05880000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:16:00,566][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45750269, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:16:00,702][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45750270, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:16:10,398][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'PARTIALLY_FILLED', 'BUY', 45750269, 14353972, '13.03280000', '0.84000000', '0.82000000']
+
+[2018-07-31 12:16:36,396][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45750269, 14353980, '13.03280000', '0.84000000', '0.02000000']
+
+[2018-07-31 12:16:36,855][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45750352, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:16:36,990][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45750353, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:20:02,976][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45750353, 14354017, '13.05880000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:20:04,809][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45750613, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:20:04,929][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45750614, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:20:06,240][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45750613, 14354022, '13.03280000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:20:07,299][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45750621, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:20:07,441][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45750622, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:23:34,362][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45748557, 14354133, '13.00680000', '0.85000000', '0.85000000']
+
+[2018-07-31 12:23:34,379][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45748595, 14354134, '13.00680000', '0.85000000', '0.85000000']
+
+[2018-07-31 12:23:34,393][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45749259, 14354135, '13.00680000', '0.85000000', '0.85000000']
+
+[2018-07-31 12:23:34,399][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45750352, 14354136, '13.00680000', '0.85000000', '0.85000000']
+
+[2018-07-31 12:23:34,403][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45750621, 14354137, '13.00680000', '0.85000000', '0.85000000']
+
+[2018-07-31 12:23:35,234][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45750907, -1, '12.98090000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:23:35,389][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45750909, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:23:35,731][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'SELL', 45748447, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:23:35,762][INFO][_cancel_open_order]
+45748447  订单被取消！
+
+[2018-07-31 12:23:35,901][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'SELL', 45748569, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:23:35,954][INFO][_cancel_open_order]
+45748569  订单被取消！
+
+[2018-07-31 12:23:36,103][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'SELL', 45748644, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:23:36,297][INFO][_cancel_open_order]
+45748644  订单被取消！
+
+[2018-07-31 12:23:36,450][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'SELL', 45750270, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:23:36,480][INFO][_cancel_open_order]
+45750270  订单被取消！
+
+[2018-07-31 12:23:36,629][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'SELL', 45750614, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:23:36,656][INFO][_cancel_open_order]
+45750614  订单被取消！
+
+[2018-07-31 12:25:05,377][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'PARTIALLY_FILLED', 'SELL', 45750909, 14354188, '13.03280000', '0.84000000', '0.32000000']
+
+[2018-07-31 12:26:31,386][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 12:28:01,704][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45750909, 14354300, '13.03280000', '0.84000000', '0.52000000']
+
+[2018-07-31 12:28:02,336][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45751309, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:28:02,476][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751310, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:28:03,126][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45751309, 14354303, '13.00680000', '0.85000000', '0.85000000']
+
+[2018-07-31 12:28:03,557][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45751315, -1, '12.98090000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:28:03,690][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751317, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:28:07,668][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751317, 14354308, '13.03280000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:28:08,104][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45751328, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:28:08,229][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751329, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:28:47,168][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45751328, 14354347, '13.00680000', '0.85000000', '0.85000000']
+
+[2018-07-31 12:28:47,613][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45751427, -1, '12.98090000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:28:47,733][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751428, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:29:44,744][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751428, 14354374, '13.03280000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:29:45,440][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45751527, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:29:45,580][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751528, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:30:41,162][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45750622, 14354441, '13.05880000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:30:41,167][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751310, 14354442, '13.05880000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:30:41,172][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751528, 14354444, '13.05880000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:30:41,180][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751329, 14354443, '13.05880000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:30:41,650][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45751690, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:30:41,778][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751691, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:30:42,101][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751692, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:30:42,135][INFO][_cancel_open_order]
+45751528完成，45748447  订单被重启！=>45751692
+
+[2018-07-31 12:30:42,254][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751693, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:30:42,311][INFO][_cancel_open_order]
+45751528完成，45748569  订单被重启！=>45751693
+
+[2018-07-31 12:30:42,496][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751694, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:30:42,536][INFO][_cancel_open_order]
+45751528完成，45748644  订单被重启！=>45751694
+
+[2018-07-31 12:30:42,652][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751695, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:30:42,679][INFO][_cancel_open_order]
+45751528完成，45750270  订单被重启！=>45751695
+
+[2018-07-31 12:30:42,793][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751696, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:30:42,830][INFO][_cancel_open_order]
+45751528完成，45750614  订单被重启！=>45751696
+
+[2018-07-31 12:32:08,371][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45751690, 14354483, '13.03280000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:32:09,091][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45751877, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:32:09,269][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751878, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:32:16,871][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751878, 14354488, '13.05880000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:32:17,302][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45751889, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:32:17,444][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45751890, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:33:36,187][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45751889, 14354532, '13.03280000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:33:36,821][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45752058, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:33:36,955][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45752060, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:33:37,314][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'PARTIALLY_FILLED', 'SELL', 45752060, 14354540, '13.05880000', '0.84000000', '0.81000000']
+
+[2018-07-31 12:33:48,365][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45752060, 14354544, '13.05880000', '0.84000000', '0.03000000']
+
+[2018-07-31 12:33:48,801][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45752089, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:33:48,936][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45752091, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:36:41,135][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751691, 14354616, '13.08490000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:36:41,165][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751692, 14354617, '13.08490000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:36:41,168][INFO][process_message]
+[45751692, '45748447N2', '不是我们网站下的订单！']
+
+[2018-07-31 12:36:41,171][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751693, 14354618, '13.08490000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:36:41,175][INFO][process_message]
+[45751693, '45748569N2', '不是我们网站下的订单！']
+
+[2018-07-31 12:36:41,177][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751694, 14354619, '13.08490000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:36:41,180][INFO][process_message]
+[45751694, '45748644N2', '不是我们网站下的订单！']
+
+[2018-07-31 12:36:41,182][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751695, 14354620, '13.08490000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:36:41,185][INFO][process_message]
+[45751695, '45750270N2', '不是我们网站下的订单！']
+
+[2018-07-31 12:36:41,187][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751696, 14354621, '13.08490000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:36:41,190][INFO][process_message]
+[45751696, '45750614N2', '不是我们网站下的订单！']
+
+[2018-07-31 12:36:41,192][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45751890, 14354622, '13.08490000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:36:41,197][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45752091, 14354623, '13.08490000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:36:42,154][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45752399, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:36:42,264][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45752401, -1, '13.11100000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:36:42,613][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'BUY', 45750907, -1, '12.98090000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:36:42,648][INFO][_cancel_open_order]
+45750907  订单被取消！
+
+[2018-07-31 12:36:42,792][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'BUY', 45751315, -1, '12.98090000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:36:42,832][INFO][_cancel_open_order]
+45751315  订单被取消！
+
+[2018-07-31 12:36:43,011][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'BUY', 45751427, -1, '12.98090000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:36:43,049][INFO][_cancel_open_order]
+45751427  订单被取消！
+
+[2018-07-31 12:36:43,186][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45752407, -1, '13.11100000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:36:43,216][INFO][_cancel_open_order]
+45752091完成，45748212  订单被重启！=>45752407
+
+[2018-07-31 12:36:43,581][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'PARTIALLY_FILLED', 'BUY', 45752399, 14354632, '13.05880000', '0.84000000', '0.07000000']
+
+[2018-07-31 12:36:57,230][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45752399, 14354644, '13.05880000', '0.84000000', '0.77000000']
+
+[2018-07-31 12:36:57,642][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45752439, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:36:57,780][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45752440, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:37:05,594][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45752440, 14354648, '13.08490000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:37:06,038][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45752469, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:37:06,177][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45752470, -1, '13.11100000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:38:41,651][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45752401, 14354715, '13.11100000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:38:41,655][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45752407, 14354716, '13.11100000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:38:41,657][INFO][process_message]
+[45752407, '45748212N2', '不是我们网站下的订单！']
+
+[2018-07-31 12:38:41,659][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'PARTIALLY_FILLED', 'SELL', 45752470, 14354717, '13.11100000', '0.84000000', '0.01000000']
+
+[2018-07-31 12:38:46,143][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45752470, 14354718, '13.11100000', '0.84000000', '0.83000000']
+
+[2018-07-31 12:38:46,841][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45752635, -1, '13.08490000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:38:46,960][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45752636, -1, '13.13720000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:38:47,293][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'BUY', 45751527, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:38:47,333][INFO][_cancel_open_order]
+45751527  订单被取消！
+
+[2018-07-31 12:38:47,484][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'BUY', 45751877, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:38:47,526][INFO][_cancel_open_order]
+45751877  订单被取消！
+
+[2018-07-31 12:38:47,681][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'BUY', 45752058, -1, '13.00680000', '0.85000000', '0.00000000']
+
+[2018-07-31 12:38:47,738][INFO][_cancel_open_order]
+45752058  订单被取消！
+
+[2018-07-31 12:38:47,916][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45752638, -1, '13.13720000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:38:47,960][INFO][_cancel_open_order]
+45752470完成，45746150  订单被重启！=>45752638
+
+[2018-07-31 12:40:30,869][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45752636, 14354775, '13.13720000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:40:30,873][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45752638, 14354776, '13.13720000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:40:30,875][INFO][process_message]
+[45752638, '45746150N2', '不是我们网站下的订单！']
+
+[2018-07-31 12:40:31,598][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45752853, -1, '13.11100000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:40:31,726][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45752854, -1, '13.16340000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:40:32,063][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'BUY', 45752089, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:40:32,103][INFO][_cancel_open_order]
+45752089  订单被取消！
+
+[2018-07-31 12:40:32,317][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'BUY', 45752439, -1, '13.03280000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:40:32,354][INFO][_cancel_open_order]
+45752439  订单被取消！
+
+[2018-07-31 12:41:16,436][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45752854, 14354830, '13.16340000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:41:16,900][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45753011, -1, '13.13720000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:41:17,039][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45753013, -1, '13.18970000', '0.83000000', '0.00000000']
+
+[2018-07-31 12:41:17,383][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'CANCELED', 'BUY', 45752469, -1, '13.05880000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:41:17,416][INFO][_cancel_open_order]
+45752469  订单被取消！
+
+[2018-07-31 12:41:19,512][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45753011, 14354841, '13.13720000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:41:19,936][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45753035, -1, '13.11100000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:41:20,063][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45753037, -1, '13.16340000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:41:27,928][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45753037, 14354854, '13.16340000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:41:28,362][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45753084, -1, '13.13720000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:41:28,497][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45753085, -1, '13.18970000', '0.83000000', '0.00000000']
+
+[2018-07-31 12:41:29,084][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'PARTIALLY_FILLED', 'BUY', 45753084, 14354857, '13.13720000', '0.84000000', '0.01000000']
+
+[2018-07-31 12:41:30,911][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45753084, 14354864, '13.13720000', '0.84000000', '0.83000000']
+
+[2018-07-31 12:41:31,525][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45753102, -1, '13.11100000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:41:31,659][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45753103, -1, '13.16340000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:41:33,622][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45753103, 14354869, '13.16340000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:41:34,099][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45753116, -1, '13.13720000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:41:34,227][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45753116, 14354872, '13.13720000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:41:34,240][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45753120, -1, '13.18970000', '0.83000000', '0.00000000']
+
+[2018-07-31 12:41:34,694][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45753122, -1, '13.11100000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:41:34,814][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45753123, -1, '13.16340000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:41:38,193][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45753123, 14354876, '13.16340000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:41:38,630][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45753133, -1, '13.13720000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:41:38,755][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45753135, -1, '13.18970000', '0.83000000', '0.00000000']
+
+[2018-07-31 12:41:40,983][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45753133, 14354878, '13.13720000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:41:41,395][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45753147, -1, '13.11100000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:41:41,518][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45753148, -1, '13.16340000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:42:38,762][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'SELL', 45753148, 14354901, '13.16340000', '0.84000000', '0.84000000']
+
+[2018-07-31 12:42:39,433][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45753238, -1, '13.13720000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:42:39,503][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'PARTIALLY_FILLED', 'BUY', 45753238, 14354914, '13.13720000', '0.84000000', '0.82000000']
+
+[2018-07-31 12:42:39,556][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45753240, -1, '13.18970000', '0.83000000', '0.00000000']
+
+[2018-07-31 12:42:39,608][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'FILLED', 'BUY', 45753238, 14354915, '13.13720000', '0.84000000', '0.02000000']
+
+[2018-07-31 12:42:40,076][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'BUY', 45753246, -1, '13.11100000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:42:40,195][INFO][process_message]
+['han-xiansheng@qq.com', 'BNBUSDT', 'NEW', 'SELL', 45753247, -1, '13.16340000', '0.84000000', '0.00000000']
+
+[2018-07-31 12:56:31,313][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 13:26:31,545][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 13:56:31,746][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 16:26:31,812][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 16:56:34,365][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 17:26:43,514][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 17:56:31,750][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 18:26:31,904][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 18:56:31,631][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 19:26:31,725][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 19:56:31,816][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 20:26:31,456][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 20:56:31,521][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 21:26:31,473][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 21:56:31,588][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 22:26:31,912][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 22:56:32,182][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 23:26:31,600][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-07-31 23:56:33,269][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 00:26:31,445][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 00:56:31,466][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 01:26:31,641][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 01:56:31,847][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 02:26:31,499][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 02:56:31,498][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 03:26:31,495][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 03:56:31,358][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 04:26:31,635][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 04:56:31,798][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 05:26:31,483][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 05:56:31,646][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 06:26:32,019][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 06:56:31,422][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 07:26:31,435][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 07:56:31,306][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 08:26:31,577][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 08:56:31,763][INFO][get_ticker24]
+24hticker 更新成功！
+
+[2018-08-01 09:26:31,637][INFO][get_ticker24]
+24hticker 更新成功！

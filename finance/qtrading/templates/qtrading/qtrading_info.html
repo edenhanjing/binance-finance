@@ -1,0 +1,603 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title %}{{q_trading.q_name}}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'amcharts/export.css'%}" type="text/css" media="all" />
+{% endblock %}
+
+{% block content%}
+
+
+<div class="form-group">
+  <h2><p class="text-center"><span style="text-decoration:line-through;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    量化交易-{{q_trading.q_name}} <span style="text-decoration:line-through;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  </p></h2>
+</div>
+
+
+  <div style="border:1px solid #edf0f2;padding: 20px;margin-bottom: 10px">
+    <b>库存</b>
+    <table class="table table-sm table-hover ">
+      <thead class="">
+        <tr>
+          <th scope="col">等值币种</th>
+          <th scope="col">总资产</th>
+          <th scope="col">成本</th>
+          <th scope="col">除USDT外市值</th>
+          <th scope="col">浮动盈亏</th>
+          <th scope="col">盈亏比</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>USDT</th>
+          <td>{{total_info.market_value|floatformat:5}}</td>
+          <td>{{total_info.cost|floatformat:5}}</td>
+          <td>{{total_info.exclude_usdt|floatformat:5}}</td>
+          <td>{{total_info.profit_and_loss|floatformat:5}}</td>
+          {% if total_info.pl_percent < 0 %}
+          <td class="text-danger">{{total_info.pl_percent|floatformat:2}}%</td>
+          {% else %}
+          <td class="text-success">{{total_info.pl_percent|floatformat:2}}%</td>
+          {%endif%}
+        </tr>
+      </tbody>
+    </table>
+    <table class="table table-sm table-hover ">
+      <thead class="">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">币种</th>
+          <th scope="col">目前持有</th>
+          <th scope="col">可用</th>
+          <th scope="col">冻结</th>
+
+          <th scope="col">最新单价</th>
+          <th scope="col">目前市值</th>
+
+
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for acco in account_info %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <th><a style="text-decoration:none;color: black" href=""><img src="{{acco.asset.logo.url}}" style="width:20px;height:20px"> {{acco.asset.name}}</a></th>
+          <td>{{acco.total|floatformat:5}}</td>
+          <td>{{acco.free|floatformat:5}}</td>
+          <td>{{acco.locked|floatformat:5}}</td>
+
+          <td>{{acco.asset.price|floatformat:5}}</td>
+          <td>{{acco.market_value|floatformat:5}}</td>
+
+
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+<div style="border:1px solid #edf0f2;padding: 10px;">
+  <div class="bg-light" style="margin-bottom: 10px">
+    <h3 style="padding: 10px 0px 0px 10px">{{q_trading.q_name}} - <small >(<a  class="text-muted" href="{% url 'currencies:symbol' q_trading.symbol.symbol %}">{{q_trading.symbol.symbol}}</a>)</small></h3>
+    <div  class="row justify-content-around">
+      <div class=" col-sm-6" >
+        <span class="badge  badge-dark"> 利用资金&nbsp;&nbsp;{{f_pair.filled_pair_amount}}USDT&nbsp;&nbsp;({{f_pair.filled_pair}}组完成)&nbsp;&nbsp;({{f_pair.complete_new}}组新)&nbsp;&nbsp;&nbsp;&nbsp;冻结资金&nbsp;&nbsp;{{f_pair.buy_pair_amount|floatformat:2}}{{q_trading.symbol.quoteAsset}}({{f_pair.buy_pair}}单)&nbsp;&nbsp;{{f_pair.sell_pair_amount|floatformat:2}}{{q_trading.symbol.baseAsset}}({{f_pair.sell_pair}}单)&nbsp;&nbsp;</span>  
+      </div>
+    </div>
+    <div  class="row justify-content-around">
+      <div class=" col-sm-2" >
+        <span class="badge  badge-info"> &nbsp;&nbsp;相较于空仓&nbsp;&nbsp;{{f_pair.relatively_empty|floatformat:2}}USDT&nbsp;&nbsp;</span>
+      </div>
+      <div class=" col-sm-2" >
+        <span class="badge  badge-info"> &nbsp;&nbsp;相较于满仓&nbsp;&nbsp;{{f_pair.simulation_full|floatformat:2}}USDT&nbsp;&nbsp;</span>  
+      </div>
+      <div class=" col-sm-2" >
+        <span class="badge  badge-danger"> &nbsp;&nbsp;量化收益&nbsp;&nbsp;{{f_pair.quantitative_i|floatformat:2}}USDT&nbsp;&nbsp;</span>  
+      </div>
+      <div class=" col-sm-2" >
+        <span class="badge  badge-success"> &nbsp;&nbsp;实际收益&nbsp;&nbsp;{{f_pair.actual_i|floatformat:2}}USDT&nbsp;&nbsp;</span>  
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-sm  ">
+		<thead class="">
+			<tr>
+				<th scope="col">交易方法</th>
+				<th scope="col">总投入</th>
+				<th scope="col">波段收益</th>
+				<th scope="col">单笔投入</th>
+				<th scope="col">最高价</th>
+				<th scope="col">最低价</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ q_trading.method }}</td>
+				<td>{{q_trading.amount}}<small class="text-muted">USDT</small></td>
+				<td>{{q_trading.q_income}}</td>
+				<td>{{q_trading.q_amount}}<small class="text-muted">USDT</small></td>
+				<td>{{q_trading.h_price}}</td>
+				<td>{{q_trading.l_price }}</td>
+
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+{% if errors %}
+<div class="alert alert-danger" role="alert">
+  {%for error in errors%}
+    {{error}}
+  {% endfor %}
+</div>
+{% else %}
+<div>
+    <span class="badge badge-light">数据时间:{% now "m-d H:i:s" %}</span>
+</div>
+{% endif %}
+
+
+<!-- HTML -->
+
+<div id="chartdiv1" class="chartdiv_"></div>
+<div id="chartdiv2" class="chartdiv_"></div>
+<div id="chartdiv3" class="chartdiv_"></div>
+
+
+<div style="border:1px solid #edf0f2;padding: 20px;margin-bottom: 10px">
+  <div>
+    <b>当前委托</b>  
+    <a href="#" class="badge badge-light text-muted" id="cancel_all_orders" style="float:right;"><small>取消当前<span>{{openoeders|length}}</span>个订单</small></a>
+  </div>
+  <small>
+  <table class="table table-sm table-hover ">
+    <thead class="">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">from</th>
+        <th scope="col">委托ID</th>
+        <th scope="col">状态</th>
+        <th scope="col">买卖</th>
+        <th scope="col">价格</th>
+        <th scope="col">数量</th>
+        <th scope="col">委托金额</th>
+        <th scope="col">时间</th>
+        <th scope="col">取消订单</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for acco in openoeders %}
+      <tr order_id="{{acco.orderId}}">
+      	<th scope="row">{{ forloop.counter }}</th>
+      	<td>{{acco.parent_order}}</td>
+        <td order_id="{{ forloop.counter }}">{{acco.orderId}}</td>
+        <td>{{acco.status}}</td>
+        {% if acco.side == 'SELL'%}
+        <td class="text-danger">{{acco.side}}</td>
+        {% else %}
+        <td class="text-success">{{acco.side}}</td>
+        {% endif %}
+        <td>{{acco.price|floatformat:5}}</td>
+        <td>{{acco.origQty|floatformat:5}}</td>
+        <td>{{acco.order_price|floatformat:5}}</td>
+        <td>{{acco.time|date:'m-d H:i:s'}}</td>
+        <td><button type="button" button_id="{{ forloop.counter }}" class="btn btn-outline-secondary btn-sm">取消订单</button></td>
+
+      </tr>
+      {% endfor %}
+
+
+    </tbody>
+  </table>
+  </small>
+</div>
+
+<div style="border:1px solid #edf0f2;padding: 20px;margin-bottom: 10px">
+  <b>交易<a href="{%url 'qtrading:trade'%}"><small class="text-muted">(查看所有历史交易)</small></a></b><br>
+  {% regroup all_orders by parent_order as o_list %}
+
+  {% for p_order in o_list %}
+    <small>
+      <span>from:{{ p_order.grouper }}</span>
+      <table class="table table-sm table-hover ">
+        <thead style="background: #8c8c8c;">
+          <tr>
+            <th scope="col">委托ID</th>
+            <th scope="col">买卖</th>
+            <th scope="col">价格</th>
+            <th scope="col">数量</th>
+            <th scope="col">委托金额</th>
+            <th scope="col">状态</th>
+            <th scope="col">时间</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in p_order.list %}
+          <tr>
+            <td>{{order.orderId}}</td>
+            <td>{{order.side}}</td>
+            <td>{{order.price|floatformat:5}}</td>
+            <td>{{order.origQty|floatformat:5}}</td>
+            <td>{{order.order_price|floatformat:5}}</td>
+            <td>{{order.status}}</td>
+            <td>{{order.time|date:'m-d H:i:s'}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      </small>
+  {% endfor %}
+
+</div>
+
+<div  class=" ">
+  <div class="d-flex justify-content-around" >
+    <form class="was-validated" enctype="multipart/form-data" method="post">{% csrf_token %}
+      {% if q_trading.iswork %}
+      <button type="submit" class="btn btn-danger">关闭此量化交易程序</button>
+      {% else %}
+      <button class="btn btn-dark" disabled>此量化交易程序已关闭</button>
+      {% endif %}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block script%}
+<script src="{% static 'amcharts/amcharts.js'%}"></script>
+<script src="{% static 'amcharts/serial.js'%}"></script>
+<script src="{% static 'amcharts/amstock.js'%}"></script>
+<script src="{% static 'amcharts/export.min.js'%}"></script>
+
+<script>
+  var chartData1=dateget()
+  function dateget() {
+        // Function to process (sort and calculate cummulative volume)
+        function processData(list, type, desc) {
+          
+          // Convert to data points
+          for(var i = 0; i < list.length; i++) {
+            list[i] = {
+              value: Number(list[i][0]),
+              volume: Number(list[i][1]),
+            }
+          }
+         
+          // Sort list just in case
+          list.sort(function(a, b) {
+            if (a.value > b.value) {
+              return 1;
+            }
+            else if (a.value < b.value) {
+              return -1;
+            }
+            else {
+              return 0;
+            }
+          });
+          
+          // Calculate cummulative volume
+          if (desc) {
+            for(var i = list.length - 1; i >= 0; i--) {
+              if (i < (list.length - 1)) {
+                list[i].totalvolume = list[i+1].totalvolume + list[i].volume;
+              }
+              else {
+                list[i].totalvolume = list[i].volume;
+              }
+              var dp = {};
+              dp["value"] = list[i].value;
+              dp[type + "volume"] = list[i].volume;
+              dp[type + "totalvolume"] = list[i].totalvolume;
+              res.unshift(dp);
+            }
+          }
+          else {
+            for(var i = 0; i < list.length; i++) {
+              if (i > 0) {
+                list[i].totalvolume = list[i-1].totalvolume + list[i].volume;
+              }
+              else {
+                list[i].totalvolume = list[i].volume;
+              }
+              var dp = {};
+              dp["value"] = list[i].value;
+              dp[type + "volume"] = list[i].volume;
+              dp[type + "totalvolume"] = list[i].totalvolume;
+              res.push(dp);
+            }
+          }
+         
+        }
+        
+        // Init
+        var data = {{chartdate1|safe}};
+        //console.log(data);
+        var res = [];
+        processData(data.bids, "bids", true);
+        processData(data.asks, "asks", false);
+        
+        //console.log(res);
+        
+        return res;
+      }
+
+  var chart = AmCharts.makeChart("chartdiv1", {
+    "type": "serial",
+    "theme": "light",
+    "titles":[{"text":"当前委托（NEW）深度图"}],
+    "dataProvider": chartData1,
+
+    "graphs": [{
+      "id": "bids",
+      "fillAlphas": 0.1,
+      "lineAlpha": 1,
+      "lineThickness": 1,
+      "lineColor": "#35b351",
+      "type": "step",
+      "valueField": "bidstotalvolume",
+      "balloonFunction": balloon
+    }, {
+      "id": "asks",
+      "fillAlphas": 0.1,
+      "lineAlpha": 1,
+      "lineThickness": 1,
+      "lineColor": "#db4c3c",
+      "type": "step",
+      "valueField": "askstotalvolume",
+      "balloonFunction": balloon
+    }, {
+      "lineAlpha": 0,
+      "fillAlphas": 0.8,
+      "lineColor": "#35b351",
+      "type": "column",
+      "clustered": false,
+      "valueField": "bidsvolume",
+      "showBalloon": false,
+    }, {
+      "lineAlpha": 0,
+      "fillAlphas": 0.8,
+      "lineColor": "#db4c3c",
+      "type": "column",
+      "clustered": false,
+      "valueField": "asksvolume",
+      "showBalloon": false
+    }],
+    "chartCursor": {
+      "fullWidth":false,
+      "cursorAlpha": 0.2,
+    },
+    "categoryField": "value",
+    "balloon": {
+      "textAlign": "left"
+    },
+
+  });
+
+  function balloon(item, graph) {
+    var txt;
+    if (graph.id == "asks") {
+      txt = "卖价: <strong>" + formatNumber(item.dataContext.value, graph.chart, 2) + "</strong><br />"
+        + "冻结: <strong>" + formatNumber(item.dataContext.asksvolume, graph.chart, 2) + "</strong><br />"
+        + "累计冻结: <strong>" + formatNumber(item.dataContext.askstotalvolume, graph.chart, 2) + "</strong>"
+        ;
+    }
+    else {
+      txt = "买价: <strong>" + formatNumber(item.dataContext.value, graph.chart, 2) + "</strong><br />"
+        + "冻结: <strong>" + formatNumber(item.dataContext.bidsvolume, graph.chart, 2) + "</strong><br />"
+        + "累计冻结: <strong>" + formatNumber(item.dataContext.bidstotalvolume, graph.chart, 2) + "</strong>"
+        ;
+    }
+    return txt;
+  }
+
+  function formatNumber(val, chart, precision) {
+    return AmCharts.formatNumber(
+      val, 
+      {
+        precision: precision ? precision : chart.precision, 
+        decimalSeparator: chart.decimalSeparator,
+        thousandsSeparator: chart.thousandsSeparator
+      }
+    );
+  }
+
+  var chartData3 = {{chartdate3|safe}};
+  //console.log(chartData3);
+
+  var chart2 = AmCharts.makeChart( "chartdiv2", {
+    "type": "serial",
+    "titles":[{"text":"订单占用（/5min）"}],
+    "dataProvider": chartData3,
+    "addClassNames": true,
+    "startDuration": 1,
+    //"color": "#FFFFFF",
+    "marginLeft": 0,
+    "categoryField": "date",
+    
+    "valueAxes": [ {
+      "id": "pair",
+      "gridAlpha": 0,
+      "axisAlpha": 0
+    }, ],
+    "graphs": [{
+      "lineColor": "#35b351",
+      "fillAlphas": 0.8,
+      "type": "column",
+      "title": "Actual Sales",
+      "valueField": "new_buy",
+      "clustered": false,
+      "columnWidth": 0.5,
+      //"showBalloon": false,
+      "balloonFunction": balloon2,
+    }, {
+      "lineColor": "#db4c3c",
+      "fillAlphas": 0.8,
+      "type": "column",
+      "title": "Target Sales",
+      "valueField": "new_sell",
+      "clustered": false,
+      "columnWidth": 0.3,
+      "showBalloon": false,
+    },],
+    "chartCursor": {
+      //"zoomable": false,
+      //"categoryBalloonDateFormat": "DD",
+      "cursorAlpha": 0.1,
+      //"valueBalloonsEnabled": false
+    },
+    
+  } );
+  function balloon2(item, graph) {
+    var txt;
+    txt = "买占用: <strong>" + formatNumber(item.dataContext.new_buy, graph.chart, 0) + "</strong><br />"
+      + "卖占用: <strong>" + formatNumber(item.dataContext.new_sell, graph.chart, 0) + "</strong>"
+      ;
+    return txt;
+  }
+
+  var chart3 = AmCharts.makeChart( "chartdiv3", {
+    "type": "serial",
+    "titles":[{"text":"买卖成交（/5min）"}],
+    "dataProvider": chartData3,
+    "addClassNames": true,
+    "startDuration": 1,
+    //"color": "#FFFFFF",
+    "marginLeft": 0,
+    "categoryField": "date",
+    
+    "valueAxes": [ {
+      "id": "pair",
+      "gridAlpha": 0,
+      "axisAlpha": 0
+    }, {
+      "id": "pair2",
+      "position": "right",
+      "gridAlpha": 0,
+      "axisAlpha": 0,
+    },  ],
+    "graphs": [ {
+      "valueField": "filled_pair",
+      "valueAxis": "pair2",
+      "labelPosition": "right",
+      "fillAlphas": 0.1,
+      "lineAlpha": 1,
+      "lineThickness": 1,
+      "lineColor": "#b0b5b9",
+      "type": "step",
+      "balloonFunction": balloon3
+    },{
+      "lineColor": "#35b351",
+      "fillAlphas": 0.8,
+      "type": "column",
+      "title": "Actual Sales",
+      "valueField": "filled_buy",
+      "clustered": false,
+      "columnWidth": 0.5,
+      "showBalloon": false,
+    }, {
+      "lineColor": "#db4c3c",
+      "fillAlphas": 0.8,
+      "type": "column",
+      "title": "Target Sales",
+      "valueField": "filled_sell",
+      "clustered": false,
+      "columnWidth": 0.3,
+      "showBalloon": false,
+    }, {
+      "id": "g3",
+      "valueField": "filled_pair_each",
+      "classNameField": "bulletClass",
+      "title": "收益",
+      "type": "smoothedLine",
+      "valueAxis": "a1",
+      "lineColor": "#b0b5b9",
+      "lineThickness": 2,
+      "negativeLineColor": "#b0b5b9",
+      "descriptionField": "filled_pair_each",
+      "bullet": "round",
+      "bulletSizeField": 1,
+      "bulletBorderAlpha": 1,
+      "bulletBorderThickness": 2,
+      "showBalloon": true,
+      "animationPlayed": true,
+      "showBalloon": false,
+    },  
+    ],
+
+    "chartCursor": {
+      //"zoomable": false,
+      //"categoryBalloonDateFormat": "DD",
+      "cursorAlpha": 0.1,
+      //"valueBalloonsEnabled": false
+    },
+    
+  } );
+  function balloon3(item, graph) {
+    var txt;
+    txt = "完成买: <strong>" + formatNumber(item.dataContext.filled_buy, graph.chart, 0) + "</strong><br />"
+      + "完成卖: <strong>" + formatNumber(item.dataContext.filled_sell, graph.chart, 0) + "</strong><br />"
+      + "5min完成: <strong>" + formatNumber(item.dataContext.filled_pair_each, graph.chart, 0) + "</strong><br />"
+      + "完成对数: <strong>" + formatNumber(item.dataContext.filled_pair, graph.chart, 0) + "</strong>"
+      ;
+    return txt;
+  }
+</script>
+
+<!--取消对应订单 js-->
+
+<script >
+for (var i = 0; i <{{openoeders|length}}+1; i++) {
+    $("[button_id='"+i+"']").click(function(){
+      if(confirm("确认取消订单?")){
+        order_num = $("#cancel_all_orders").find("span");
+        var count=$(this).attr('button_id');
+        var order_id= $("[order_id="+ count +"]").text();
+        var symbol= '{{q_trading.symbol.symbol}}';
+        var date_ = {'order_id':order_id,'symbol':symbol};
+        $.post("{%url 'qtrading:cancel_order'%}",date_,function(response_date){
+          if (response_date.orderId){
+            $("tr[order_id="+ response_date.orderId +"]").hide();
+            var change = order_num.text()*1-1;
+            order_num.text(change);
+          }
+          else if (response_date.aa){alert('订单取消失败!订单状态为'+response_date.status);};
+        });
+      } 
+    });
+}
+</script>
+<script>
+$("#cancel_all_orders").click(function(){
+    if(confirm("确认取消当前所有订单?")){
+      for (var i = 1; i <{{openoeders|length}}+1; i++) {
+        order_num = $("#cancel_all_orders").find("span");
+        var order_id= $("[order_id="+ i +"]").text();
+        var symbol= '{{q_trading.symbol.symbol}}';
+        var date_ = {'order_id':order_id,'symbol':symbol};
+        $.post("{%url 'qtrading:cancel_order'%}",date_,function(response_date){
+            if (response_date.orderId){
+              $("tr[order_id="+ response_date.orderId +"]").hide();
+              var change = order_num.text()*1-1;
+              order_num.text(change);
+            };
+          });
+      };
+      
+    }  
+});
+
+
+</script>
+
+{% endblock %}
