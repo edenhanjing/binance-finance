@@ -9,7 +9,7 @@ certifi==2018.4.16
 cffi==1.11.5
 chardet==3.0.4
 constantly==15.1.0
-cryptography==2.3
+cryptography==3.2
 dateparser==0.7.0
 Django==2.0.7
 django-celery-beat==1.1.1
