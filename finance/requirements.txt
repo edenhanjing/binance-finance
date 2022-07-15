@@ -13,7 +13,7 @@ cryptography==2.3
 dateparser==0.7.0
 Django==2.0.7
 django-celery-beat==1.1.1
-django-celery-results==1.0.1
+django-celery-results==2.4.0
 hyperlink==18.0.0
 idna==2.7
 incremental==17.5.0
